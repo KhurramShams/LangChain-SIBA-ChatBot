@@ -25,25 +25,15 @@ encoding = tiktoken.encoding_for_model("text-davinci-003")
 
 #------------- Load Data --------------------------------#
 
-# Override SQLite for compatibility
+# Load Chroma DB from repo root
 persist_directory = "./chroma_db"
-try:
-    __import__('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-except ImportError:
-    pass  # If pysqlite3-binary isn’t installed, fall back to default SQLite
 if not os.path.exists(persist_directory):
     st.error("Chroma DB not found at './chroma_db'. Please ensure the vector database is in the repo root.")
     st.stop()
-# Load the vector database
-try:
-    vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
-    retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
-except Exception as e:
-    st.error(f"Failed to load Chroma DB: {str(e)}")
-    st.stop()
-# retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
+
+vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
+retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
+
 template ="""
 You are an educational chatbot for IBA Sukkur. Use the context to answer the question. If the context lacks specific details, provide what you can based on the available information and note what’s missing.
 Context: {context}
