@@ -23,7 +23,7 @@ st.write(api_key)
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=api_key)
 embedding_function = OpenAIEmbeddings(model="text-embedding-3-small", openai_api_key=api_key)
-encoding = tiktoken.encoding_for_model("text-davinci-003", openai_api_key=api_key)
+encoding = tiktoken.encoding_for_model("text-davinci-003")
 
 #------------- Load Data --------------------------------#
 persist_directory = "./chroma_db"
