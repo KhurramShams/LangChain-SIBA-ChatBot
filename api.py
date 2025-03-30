@@ -19,7 +19,7 @@ st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",
 
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
-    raise ValueError("OpenAI API key is missing. Set it as an environment variable.")
+    st.write("OpenAI API key is missing. Set it as an environment variable.")
 
 st.write("API Key found (hidden for security)")  # Debugging step
 
