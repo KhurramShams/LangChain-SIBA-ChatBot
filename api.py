@@ -29,7 +29,7 @@ encoding = tiktoken.encoding_for_model("text-davinci-003")
 
 # Load Chroma DB
 persist_directory = "Vector_DataBase/chroma_db"
-vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
+vector_db = Chroma(persist_directory="Vector_DataBase/chroma_db", embedding_function=embedding_function)
 retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
 
 template ="""
