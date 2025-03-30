@@ -8,9 +8,8 @@ from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain_openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 import tiktoken
-#from langchain.callbacks import get_openai_callback
 from langchain_community.callbacks.manager import get_openai_callback
-import time  # Add this at the top
+import time 
 
 
 #------------- Page Configuration ----------------------# 
