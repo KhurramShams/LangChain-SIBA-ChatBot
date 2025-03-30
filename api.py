@@ -27,9 +27,9 @@ encoding = tiktoken.encoding_for_model("text-davinci-003")
 #------------- Load Data --------------------------------#
 
 # Load Chroma DB from repo root
-persist_directory = "./chroma_db"
+persist_directory = "Vector_DataBase/chroma_db"
 if not os.path.exists(persist_directory):
-    st.error("Chroma DB not found at './chroma_db'. Please ensure the vector database is in the repo root.")
+    st.error("Chroma DB not found at 'Vector_DataBase/chroma_db'. Please ensure the vector database is in the repo root.")
     st.stop()
 
 vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
