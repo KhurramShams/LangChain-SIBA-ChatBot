@@ -2,7 +2,6 @@
 # rom langchain.vectorstores import Chroma
 from langchain_community.vectorstores import Chroma
 import os
-from dotenv import load_dotenv
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain.chains.retrieval_qa.base import RetrievalQA
@@ -17,7 +16,7 @@ import time  # Add this at the top
 st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",layout="centered")
 
 #------------- LLM Function -----------------------------#
-load_dotenv()
+
 api_key = os.getenv("OPENAI_API_KEY")
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=api_key)
