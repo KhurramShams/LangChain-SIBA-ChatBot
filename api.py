@@ -24,8 +24,6 @@ embedding_function = OpenAIEmbeddings(model="text-embedding-3-small", openai_api
 encoding = tiktoken.encoding_for_model("text-davinci-003")
 
 #------------- Load Data --------------------------------#
-#persist_directory = "Vector_DataBase/chroma_db"
-#vector_db = Chroma(persist_directory= "./chroma_db", embedding_function=embedding_function)
 
 # Load Chroma DB from repo root
 persist_directory = "./chroma_db"
