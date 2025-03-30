@@ -26,7 +26,7 @@ embedding_function = OpenAIEmbeddings(model="text-embedding-3-small", openai_api
 encoding = tiktoken.encoding_for_model("text-davinci-003")
 
 #------------- Load Data --------------------------------#
-persist_directory = "./chroma_db"
+persist_directory = "/chroma_db"
 vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
 retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
 
