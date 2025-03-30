@@ -33,7 +33,7 @@ persist_directory = "./chroma_db"
 if not os.path.exists(persist_directory):
     st.error("Chroma DB not found at './chroma_db'. Please ensure the vector database is included in the repo.")
     st.stop()
-st.write("Issue")
+vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
 retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
 
 template ="""
