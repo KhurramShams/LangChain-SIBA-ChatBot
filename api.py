@@ -17,11 +17,8 @@ st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",
 
 #------------- LLM Function -----------------------------#
 
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    st.write("OpenAI API key is missing. Set it as an environment variable.")
-
-st.write("API Key found (hidden for security)")  # Debugging step
+api_key = st.secrets["openai"]["api_key"]
+st.write(api_key)
 
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=api_key)
