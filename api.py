@@ -27,9 +27,11 @@ encoding = tiktoken.encoding_for_model("text-davinci-003")
 #persist_directory = "Vector_DataBase/chroma_db"
 #vector_db = Chroma(persist_directory= "./chroma_db", embedding_function=embedding_function)
 
-# Load Chroma DB
-persist_directory = "Vector_DataBase/chroma_db"
-vector_db = Chroma(persist_directory="Vector_DataBase/chroma_db", embedding_function=embedding_function)
+# Load Chroma DB from repo root
+persist_directory = "./chroma_db"
+if not os.path.exists(persist_directory):
+    st.error("Chroma DB not found at './chroma_db'. Please ensure the vector database is in the repo root.")
+    st.stop()
 retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
 
 template ="""
