@@ -5,6 +5,7 @@ import os
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
+from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain_openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 import tiktoken
