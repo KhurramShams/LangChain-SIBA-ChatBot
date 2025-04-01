@@ -18,7 +18,6 @@ st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",
 #------------- LLM Function -----------------------------#
 
 api_key = st.secrets["openai"]["api_key"]
-st.write(api_key)
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=api_key)
 embedding_function = OpenAIEmbeddings(model="text-embedding-3-small", openai_api_key=api_key)
@@ -27,13 +26,10 @@ encoding = tiktoken.encoding_for_model("text-davinci-003")
 #------------- Load Data --------------------------------#
 
 # Load Chroma DB from repo root
-persist_directory = "Vector_DataBase/chroma_db"
-# Add this BEFORE Chroma() initialization
+persist_directory = "chroma_db"
 st.write("Contents of Vector_DataBase:", os.listdir("Vector_DataBase"))
 st.write("Chroma DB exists:", os.path.exists(persist_directory))
-if not os.path.exists(persist_directory):
-    st.error("Chroma DB not found at 'Vector_DataBase/chroma_db'. Please ensure the vector database is in the repo root.")
-    st.stop()
+
 
 vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
 retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
