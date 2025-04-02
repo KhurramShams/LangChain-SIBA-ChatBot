@@ -81,10 +81,10 @@ st.markdown(
 )
 #---------------Stream-Lit Fornt End Section ---------------#
 Disply= True
-    if "Input_token" not in st.session_state:
-        st.session_state.Input_token = 0
-    if "out_token" not in st.session_state:
-        st.session_state.out_token = 0
+if "Input_token" not in st.session_state:
+    st.session_state.Input_token = 0
+if "out_token" not in st.session_state:
+    st.session_state.out_token = 0
 
 if Disply:
     token=10
