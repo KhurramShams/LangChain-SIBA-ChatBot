@@ -81,6 +81,11 @@ st.markdown(
 )
 #---------------Stream-Lit Fornt End Section ---------------#
 Disply= True
+    if "Input_token" not in st.session_state:
+        st.session_state.Input_token = 0
+    if "out_token" not in st.session_state:
+        st.session_state.out_token = 0
+
 if Disply:
     token=10
     # Desging App
@@ -95,11 +100,6 @@ if Disply:
          st.markdown('<div class="token-container" ><p style="font-weight: bold;">⌛ Output Token</p>{}</div>'.format (st.session_state.out_token) , unsafe_allow_html=True)
     
     question =st.text_area("Ask me about IBA Sukkur! (Max 200 characters)")
-
-    if "Input_token" not in st.session_state:
-        st.session_state.Input_token = 0
-    if "out_token" not in st.session_state:
-        st.session_state.out_token = 0
 
     if st.button("Submit",help="Click to get an answer"):
         with st.spinner("Thinking... Please wait ⏳"):
