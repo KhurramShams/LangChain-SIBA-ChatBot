@@ -1,4 +1,8 @@
-#------------- Libraries and Dependencies ----------------#
+# Force use of pysqlite3 (for ChromaDB compatibility)
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import time 
 import os
 import streamlit as st
