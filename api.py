@@ -19,7 +19,6 @@ st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",
 #------------- LLM Function -----------------------------#
 
 api_key = st.secrets["openai"]["api_key"]
-st.write("Working Fine")
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=api_key)
 embedding_function = OpenAIEmbeddings(model="text-embedding-3-small", openai_api_key=api_key)
@@ -103,7 +102,7 @@ if Disply:
 
     if st.button("Submit",help="Click to get an answer"):
         with st.spinner("Thinking... Please wait ⏳"):
-            time.sleep(5)  # Simulate processing time
+            time.sleep(3)  # Simulate processing time
             with get_openai_callback() as cb:
                 response = chain.invoke({"query": question})
                 st.session_state.Input_token = cb.prompt_tokens
