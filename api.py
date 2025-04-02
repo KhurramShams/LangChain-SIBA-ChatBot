@@ -79,11 +79,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 #---------------Stream-Lit Fornt End Section ---------------#
+
+
 Disply= True
 if "Input_token" not in st.session_state:
     st.session_state.Input_token = 0
 if "out_token" not in st.session_state:
     st.session_state.out_token = 0
+
+if st.session_state.Input_token > 15000:  # Example threshold
+    st.warning("High token usage detected!")
+    Disply= Flase
 
 if Disply:
     token=10
