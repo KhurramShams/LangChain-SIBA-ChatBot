@@ -1,17 +1,14 @@
 #------------- Libraries and Dependencies ----------------#
-# rom langchain.vectorstores import Chroma
-from langchain_community.vectorstores import Chroma
+import time 
 import os
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain.chains.retrieval_qa.base import RetrievalQA
-from langchain_openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 import tiktoken
-from langchain_community.callbacks.manager import get_openai_callback
-import time 
-
-
+from langchain_community.callbacks.manager import get_openai_callback  # Updated import
+from langchain_chroma import Chroma  # Updated Chroma import
+from langchain_openai import OpenAIEmbeddings
 #------------- Page Configuration ----------------------# 
 st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",layout="centered")
 
@@ -27,11 +24,7 @@ encoding = tiktoken.encoding_for_model("text-davinci-003")
 #------------- Load Data --------------------------------#
 
 # Load Chroma DB from repo root
-persist_directory = "Vector_DataBase/chroma_db"
-st.write("Contents of Vector_DataBase:", os.listdir("Vector_DataBase"))
-st.write("Chroma DB exists:", os.path.exists(persist_directory))
-
-
+persist_directory = "./chroma_db"
 vector_db = Chroma(persist_directory=persist_directory, embedding_function=embedding_function)
 retriever = vector_db.as_retriever(search_type="mmr", search_kwargs={"k": 2})
 
