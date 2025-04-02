@@ -119,10 +119,10 @@ if Disply:
             st.error("The document doesn't provide information about the weather at IBA Sukkur.")
         else:
             st.success(response["result"])
-    if st.button("Clear Chat"):
-        st.session_state.messages = []
-        st.rerun()
-   
+            
+        if st.button("Clear Chat"):
+            st.session_state.messages = []
+            st.rerun()
 else:
     st.title("Mode Is On")
 
