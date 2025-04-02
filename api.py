@@ -18,6 +18,7 @@ st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",
 #------------- LLM Function -----------------------------#
 
 api_key = st.secrets["openai"]["api_key"]
+st.write("Working Fine")
 
 llm = ChatOpenAI(model_name="gpt-4o-mini", openai_api_key=api_key)
 embedding_function = OpenAIEmbeddings(model="text-embedding-3-small", openai_api_key=api_key)
