@@ -94,7 +94,7 @@ if st.session_state.Input_token > 15000:  # Example threshold
 if Disply:
     token=10
     # Desging App
-    st.image("assets/logo.png", width=200)
+    st.image("assets/IBA-Sukkur-logo.png", width=200)
     st.title("SIBA Chat-Bot v.0.5")
     st.write("(Beta Version)")
     #--------------- Token Section -------------------------#
