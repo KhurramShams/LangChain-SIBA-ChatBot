@@ -1,3 +1,6 @@
+import os
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
 # Force use of pysqlite3 (for ChromaDB compatibility)
 __import__('pysqlite3')
 import sys
