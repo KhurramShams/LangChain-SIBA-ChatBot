@@ -17,7 +17,7 @@ from langchain_community.callbacks.manager import get_openai_callback  # Updated
 from langchain_chroma import Chroma  # Updated Chroma import
 from langchain_openai import OpenAIEmbeddings
 #------------- Page Configuration ----------------------# 
-st.set_page_config(page_title="SIBA CHAT-BOT", page_icon=":material/smart_toy:",layout="centered")
+st.set_page_config(page_title="SIBA RAG Assistant", page_icon=":material/smart_toy:",layout="centered")
 
 #------------- LLM Function -----------------------------#
 
@@ -98,7 +98,7 @@ if Disply:
     token=10
     # Desging App
     st.image("assets/IBA-Sukkur-logo.png", width=100)
-    st.title("SIBA Chat-Bot v.0.5")
+    st.title("SIBA RAG Assistant v.0.5")
     st.write("(Beta Version)")
     #--------------- Token Section -------------------------#
     col1,col2 =st.columns(2,vertical_alignment='center')
